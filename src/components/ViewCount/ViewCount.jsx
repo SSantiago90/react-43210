@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-export default function ViewCount() {
+export default function ViewCount({ initialValue }) {
   /* let viewCount = 0;*/
-  let [viewCount, setViewCount] = useState(0); // -> [ variableDeEstado, setterDeLaVariableDeEstado ]
+  let [viewCount, setViewCount] = useState(initialValue); // -> [ variableDeEstado, setterDeLaVariableDeEstado ]
 
   const stylesViewCount = {
     backgroundColor: "blue",

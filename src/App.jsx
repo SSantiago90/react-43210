@@ -1,61 +1,38 @@
 import Button from "./components/Button";
 import Item from "./components/Item/Item";
+import NavBar from "./components/NavBar/NavBar";
 import ViewCount from "./components/ViewCount/ViewCount";
 
 function App() {
-  function authUser() {
-    return {
-      username: "Matias",
-      colorPreferido: "lightblue",
-    };
-  }
-
-  const user = authUser();
-
-  function handleNoClick() {
-    alert("Te pedi que no me toques");
-  }
-
-  function handleClick() {
-    alert("Gracias por clickear");
-  }
-
   return (
     <div className="header">
+      <NavBar />
+
       <div>
-        <p className="read-the-docs">
-          Click on the Vite and React logos to learn more
-          <Button>Ver documentación</Button>
-        </p>
-      </div>
-      <div>
-        <h1>Hola {user.username} bienvenida a Coderhouse</h1>
-      </div>
-      <div>
-        <h2>Hola de nuevo</h2>
-        <ViewCount />
-        <div>
+        <ViewCount initialValue={0} />
+
+        <div style={{ display: "flex" }}>
           <Item
             title="Pantalon"
             price="456"
             img="https://via.placeholder.com/300x200"
             category="ofertas"
+            color="green"
           />
           <Item
             title="Remera"
             price="123"
             img="https://via.placeholder.com/300x200"
             category="ofertas"
+            color="orange"
           />
-        </div>
-        <div>
-          <Button color="red" onClick={handleClick}>
-            Clickeame por favor
-          </Button>
-          <Button color="green" onClick={handleNoClick}>
-            No me clickeen
-          </Button>
-          {/* Button({color: "green", label="no me clickees"}) */}
+          <Item
+            title="Zapatilla"
+            price="123"
+            img="https://via.placeholder.com/300x200"
+            category="ofertas"
+            color="red"
+          />
         </div>
       </div>
     </div>

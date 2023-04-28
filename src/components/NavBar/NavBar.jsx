@@ -3,6 +3,7 @@ import "./navbar.css";
 const NavBar = () => (
   <nav>
     <ul>
+      <h2 className="title">MiTienda</h2>
       <li>
         <a href="/">Homepage</a>
       </li>
