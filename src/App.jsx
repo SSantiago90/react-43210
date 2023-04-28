@@ -1,4 +1,6 @@
-import "./App.css";
+import Button from "./components/Button";
+import Item from "./components/Item/Item";
+import ViewCount from "./components/ViewCount/ViewCount";
 
 function App() {
   function authUser() {
@@ -8,24 +10,22 @@ function App() {
     };
   }
 
-  function contadorDeVistas() {
-    return 123808053;
-  }
-
   const user = authUser();
 
-  const stylesViewCount = {
-    backgroundColor: user.colorPreferido,
-    color: "black",
-    fontWeight: "700",
-    marginTop: "5",
-  };
+  function handleNoClick() {
+    alert("Te pedi que no me toques");
+  }
+
+  function handleClick() {
+    alert("Gracias por clickear");
+  }
 
   return (
     <div className="header">
       <div>
         <p className="read-the-docs">
           Click on the Vite and React logos to learn more
+          <Button>Ver documentación</Button>
         </p>
       </div>
       <div>
@@ -33,9 +33,29 @@ function App() {
       </div>
       <div>
         <h2>Hola de nuevo</h2>
-        <div style={stylesViewCount}>{contadorDeVistas()}</div>
+        <ViewCount />
         <div>
-          <span></span>
+          <Item
+            title="Pantalon"
+            price="456"
+            img="https://via.placeholder.com/300x200"
+            category="ofertas"
+          />
+          <Item
+            title="Remera"
+            price="123"
+            img="https://via.placeholder.com/300x200"
+            category="ofertas"
+          />
+        </div>
+        <div>
+          <Button color="red" onClick={handleClick}>
+            Clickeame por favor
+          </Button>
+          <Button color="green" onClick={handleNoClick}>
+            No me clickeen
+          </Button>
+          {/* Button({color: "green", label="no me clickees"}) */}
         </div>
       </div>
     </div>
