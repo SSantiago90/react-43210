@@ -5,7 +5,9 @@ export default function ViewCount({ initialValue }) {
   let [viewCount, setViewCount] = useState(initialValue); // -> [ variableDeEstado, setterDeLaVariableDeEstado ]
 
   const stylesViewCount = {
-    backgroundColor: "blue",
+    maxWidth: "360px",
+    margin: "15px auto",
+    backgroundColor: "#343434",
     textAlign: "center",
     padding: "15px",
     color: "white",

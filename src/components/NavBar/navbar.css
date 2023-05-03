@@ -1,8 +1,25 @@
-nav{
-  background-color: aqua;
+.nav-menu{
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: 0;  
+  height: 90px;
+  background-color: rgb(233, 244, 75);
+  top: 0;
+  margin-bottom: 45px;
 }
 
-.title {
-  color: rgb(48, 0, 90);
-  text-decoration: underline;
+.nav-link{
+  text-decoration: none;
+  font-weight:400;
+  font-size: 1.15em;
+  color:rgb(59, 59, 50)
+}
+
+
+.nav-link:hover{
+  font-weight: 600;
+  color:rgb(19, 19, 17)
 }

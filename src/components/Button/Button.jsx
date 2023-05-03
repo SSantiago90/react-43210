@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./button.scss";
 
 export default function Button(props) {
   const [colorBtn, setColorBtn] = useState(props.color);
@@ -13,7 +14,7 @@ export default function Button(props) {
   }
 
   return (
-    <button onClick={handleClick} style={styleBtn}>
+    <button className="btn" onClick={handleClick} style={styleBtn}>
       {props.children}
     </button>
   );

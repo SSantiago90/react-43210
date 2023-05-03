@@ -3,10 +3,6 @@ a{
   text-decoration: none;
 }
 
-.price-discount{
-  color: darkolivegreen;
-}
-
 .font-xl{
   font-size: 20 px;
 }
@@ -29,11 +25,16 @@ a{
 .item-card_header{
   background-color: rgb(233, 233, 233);
   font-size: large;
+  padding-bottom: 12px;
 }
 
 .item-card_header h2{
-  padding: 16px 2px;
+  padding: 16px 2px 0px;
   margin: 0px;
+}
+
+.item-card_header small{
+  font-size: 12px;
 }
 
 .item-card_img{
@@ -81,13 +82,6 @@ a{
   background-color: rgb(223, 117, 84);
   color: white;
 }
-
-.item-card_favicon.favorite.green{
-  display: block;
-  background-color: rgb(84, 223, 147);
-  color: white;
-}
-
 
 small{
   color: #8c8c8e;

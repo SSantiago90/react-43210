@@ -1,6 +1,7 @@
 import { useState } from "react";
-import Button from "../Button";
+import Button from "../Button/Button";
 import "./item.css";
+import ItemCount from "../ItemCount/ItemCount";
 
 function CardDescription({ price, category }) {
   return (
@@ -13,10 +14,9 @@ function CardDescription({ price, category }) {
 
 function Item({ title, img, price, category, color }) {
   const [isFavorite, setIsFavorite] = useState(false);
-
   let classNameFavorite;
-  /* atras Ctrl+Z - adelante Ctrl+Shift+Z */
-  if (isFavorite) {
+
+  if (isFavorite === false) {
     classNameFavorite = "item-card_favicon";
   } else {
     classNameFavorite = "item-card_favicon favorite";
@@ -27,24 +27,26 @@ function Item({ title, img, price, category, color }) {
     : "item-card_favicon"; */
 
   function handleClickFav() {
+    console.log("ok");
     setIsFavorite(!isFavorite);
   }
 
   return (
     <div className="item-card">
-      <div onClick={handleClickFav} className={classNameFavorite}>
-        ♥️
-      </div>
+      <button onClick={handleClickFav} className={classNameFavorite}>
+        ♥
+      </button>
+
       <div className="item-card_header">
         <h2>{title}</h2>
+        <small>{category}</small>
       </div>
       <div className="item-card_img">
         <img src={img} alt="imagen"></img>
       </div>
 
-      <CardDescription price={price} category={category} />
-
-      {/* <Button label="ver detalle" color="purple" /> */}
+      <CardDescription price={price} color={color} />
+      <ItemCount stock={5} />
       <Button color={color}>Ver detalle</Button>
     </div>
   );

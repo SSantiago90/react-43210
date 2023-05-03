@@ -1,18 +1,32 @@
 import "./navbar.css";
 
-const NavBar = () => (
-  <nav>
-    <ul>
-      <h2 className="title">MiTienda</h2>
-      <li>
-        <a href="/">Homepage</a>
-      </li>
-      <li>
-        <a href="/">Remeras</a>
-      </li>
-    </ul>
-    {/* CartWidget */}
-  </nav>
-);
-
-export default NavBar;
+export default function NavBar() {
+  return (
+    <nav>
+      <ul className="nav-menu">
+        <h2>
+          <li>
+            <a href="/">miTienda</a>
+          </li>
+        </h2>
+        <li className="nav-item">
+          <a className="nav-link" href="/">
+            Remeras
+          </a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="/">
+            Zapatillas
+          </a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="/">
+            Camperas
+          </a>
+        </li>
+        {/* CartWidget*/}
+        <div>🛒</div>
+      </ul>
+    </nav>
+  );
+}
