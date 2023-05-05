@@ -6,7 +6,7 @@ import ItemCount from "../ItemCount/ItemCount";
 function CardDescription({ price, category }) {
   return (
     <div className="item-card_detail">
-      <h4>$ {price}</h4>
+      <h4 className="item-card_price-tag">$ {price}</h4>
       <small>{category}</small>
     </div>
   );

@@ -55,4 +55,17 @@ const courses = [
   },
 ];
 
-export default courses;
+const courseTitles = courses.map((curso) => {
+  /* .... */
+  return `<a href="/">Registrate al curso de: ${curso.title}</a>`;
+});
+
+console.log(courseTitles);
+
+/* 
+const numeros = [10, 5, 50];
+
+const numerosAlCuadrado = numeros.map(function (num) {
+  return num * num;
+});
+ */

@@ -53,8 +53,14 @@ a{
 }
 
 .item-card_detail{
-  height: 140px;
   padding: 12px 8px;
+}
+
+.item-card_price-tag{
+  font-size: 28px;  
+  color:rgb(75, 75, 75);
+  font-weight: 900;
+  margin: 5px auto 15px;
 }
 
 .item-card:hover .item-card_favicon{
@@ -85,9 +91,4 @@ a{
 
 small{
   color: #8c8c8e;
-}
-
-.item-card_price{
-  color: #444444;
-  font-weight: bold;
 }

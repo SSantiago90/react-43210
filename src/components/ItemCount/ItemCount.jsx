@@ -1,5 +1,6 @@
 import Flex from "../Flex/Flex";
 import { useState } from "react";
+import "./itemcount.css";
 
 function ItemCount({ stock }) {
   const [count, setCount] = useState(0);
@@ -13,20 +14,29 @@ function ItemCount({ stock }) {
   }
 
   let isDisabledSubstract = count === 1;
+  /* let isDisabledAdd = ??? */
 
   return (
-    <div className="count-container">
-      <div className="count-btns">
+    <div className="itemcount_container">
+      <small>Agregá la cantidad deseada al carrito</small>
+      <div className="itemcount_control">
         <Flex>
-          <button disabled={isDisabledSubstract} onClick={handleSubstract}>
+          <button
+            disabled={isDisabledSubstract}
+            className="btn"
+            onClick={handleSubstract}
+          >
             -
           </button>
-          <p>{count}</p>
-          <button onClick={handleAdd}>+</button>
+          <span className="itemcount_count">{count}</span>
+          <button className="btn" onClick={handleAdd}>
+            +
+          </button>
         </Flex>
       </div>
-      <div>
-        <button>Agregar a mi carrito</button>
+
+      <div className="itemcount_btns">
+        <button className="btn">Agregar al carrito</button>
       </div>
     </div>
   );
