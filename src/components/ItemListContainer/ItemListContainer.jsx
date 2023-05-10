@@ -1,9 +1,9 @@
-import Item from "../Item/Item";
 import { useEffect, useState } from "react";
 
 /* AsyncMock - servicioMock / backend/nube/api */
 import mobilePhones from "../../data/mobiles";
 import ItemList from "./ItemList";
+
 function getData() {
   return new Promise((resolve) => {
     setTimeout(() => {

@@ -3,14 +3,14 @@ import { useState } from "react";
 import "./itemcount.css";
 
 function ItemCount({ stock }) {
-  const [count, setCount] = useState(0);
+  let [count, setCount] = useState(0);
 
   function handleAdd() {
     if (count < stock) setCount(count + 1);
   }
 
   function handleSubstract() {
-    if (count > 1) setCount(count - 1);
+    if (count > 1) count = count - 1;
   }
 
   let isDisabledSubstract = count === 1;
