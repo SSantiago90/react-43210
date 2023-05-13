@@ -1,12 +1,14 @@
-import React from "react";
 import Item from "../Item/Item";
+import Flex from "../Flex/Flex";
 
 function ItemList({ products }) {
   return (
     <div>
-      {products.map((itemInArray) => (
-        <Item key={itemInArray.id} {...itemInArray} />
-      ))}
+      <Flex title="Mi catálogo">
+        {products.map((itemInArray) => (
+          <Item key={itemInArray.id} {...itemInArray} />
+        ))}
+      </Flex>
     </div>
   );
 }

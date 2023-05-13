@@ -1,6 +1,8 @@
 /* AsyncMock - servicioMock / backend/nube/api */
 import { useEffect, useState } from "react";
 import mobilePhones from "../../data/mobiles";
+import "./itemdetail.css";
+import ItemCount from "../ItemCount/ItemCount";
 
 /* AsnyMock ----------------------------------------------- */
 function getItemData() {
@@ -14,6 +16,7 @@ function getItemData() {
 
 function ItemDetailContainer() {
   // estado
+  /* /detalle/10 */
   const [product, setProduct] = useState({});
 
   //efecto
@@ -26,10 +29,16 @@ function ItemDetailContainer() {
   //UI
   return (
     /* <ItemDetail .../> */
-    <div>
-      <h1>Titulo: {product.title}</h1>
-      <img src={product.img}></img>
-      <h4>price: $ {product.price}</h4>
+    <div className="card-detail_main">
+      <div className="card-detail_img">
+        <img src={product.img} alt={product.title} />
+      </div>
+      <div className="card-detail_detail">
+        <h1>{product.title}</h1>
+        <h2 className="priceTag">$ {product.price}</h2>
+        <small>{product.detail}</small>
+        <ItemCount stock={5} />
+      </div>
     </div>
   );
 }

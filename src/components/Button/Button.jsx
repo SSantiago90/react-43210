@@ -9,12 +9,11 @@ export default function Button(props) {
   };
 
   function handleClick() {
-    setColorBtn("grey");
     props.onClick();
   }
 
   return (
-    <button className="btn" onClick={handleClick} style={styleBtn}>
+    <button className={props.className} onClick={handleClick} style={styleBtn}>
       {props.children}
     </button>
   );
