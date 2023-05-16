@@ -1,4 +1,4 @@
-function Flex({ children, title }) {
+function Flex({ children }) {
   const flexStyle = {
     display: "flex",
     justifyContent: "space-around",
@@ -7,7 +7,6 @@ function Flex({ children, title }) {
 
   return (
     <div>
-      <h2 style={{ textAlign: "center", color: "blue" }}>{title}</h2>
       <div style={flexStyle}>{children}</div>
     </div>
   );
