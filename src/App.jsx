@@ -1,6 +1,6 @@
 import Carrousel from "./components/Carrousel/Carousel_2";
 import Item from "./components/Item/Item";
-import ItemDetailContainer from "./components/ItemDetailContainer.jsx/ItemDetailContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import NavBar from "./components/NavBar/NavBar";
 import ViewCount from "./components/ViewCount/ViewCount";
@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="header">
       <NavBar />
-      <Carrousel>
+      {/* <Carrousel>
         <div>
           <h3>Primer slide</h3>
           <img src="https://place-hold.it/500x103"></img>
@@ -27,7 +27,7 @@ function App() {
         <div>
           <Item title="prueba" price="200" />
         </div>
-      </Carrousel>
+      </Carrousel> */}
       <ViewCount initialValue={0} />
 
       <ItemDetailContainer />

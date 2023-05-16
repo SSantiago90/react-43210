@@ -1,12 +1,11 @@
+import { Children } from "react";
+
 function Carrousel({ children }) {
   return (
     <div id="carouselExample" className="carousel slide">
       <div className="carousel-inner">
-        {children.map((slide, index) => (
-          <div
-            key={index}
-            className={`carousel-item${index === 0 ? " active" : ""}`}
-          >
+        {Children.map(children, (slide, index) => (
+          <div className={`carousel-item${index === 0 ? " active" : ""}`}>
             {slide}
           </div>
         ))}

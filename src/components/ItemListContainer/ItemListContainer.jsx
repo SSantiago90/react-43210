@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 
-/* AsyncMock - servicioMock / backend/nube/api */
+/* AsyncMockService - servicioMock / backend/nube/api */
 import mobilePhones from "../../data/mobiles";
 import ItemList from "./ItemList";
 
 function getData() {
+  /* / */
   return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(mobilePhones);
-    }, 2000);
+    /* .... */
+    /* fetch a la DB */
+    resolve(mobilePhones);
   });
 }
 /* ---------------------------------------------- */
