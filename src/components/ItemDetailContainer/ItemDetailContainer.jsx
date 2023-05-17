@@ -15,20 +15,16 @@ function getItemData() {
 /* ------------------------------------------------ */
 
 function ItemDetailContainer() {
-  // estado
-  /* /detalle/10 */
   const [product, setProduct] = useState({});
 
-  //efecto
   useEffect(() => {
     getItemData().then((respuesta) => {
       setProduct(respuesta);
     });
   }, []);
 
-  //UI
   return (
-    /* <ItemDetail .../> */
+    /* Separar en componente de presentación: <ItemDetail .../> */
     <div className="card-detail_main">
       <div className="card-detail_img">
         <img src={product.img} alt={product.title} />

@@ -44,6 +44,15 @@ const mobilePhones = [
     stock: 3,
     detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
+  {
+    id: 7,
+    title: "iPhone 13",
+    category: "Apple",
+    img: "/src/assets/apple_iphone-12.jpg",
+    price: 1899.99,
+    stock: 2,
+    detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  },
 ];
 
 export default mobilePhones;

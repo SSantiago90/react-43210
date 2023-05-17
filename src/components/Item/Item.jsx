@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "../Button/Button";
 import "./item.css";
 import ItemCount from "../ItemCount/ItemCount";
+import withConsoleLog from "../HOCs/withRenderCount";
 
 function CardDescription({ price, category }) {
   return (
@@ -47,9 +48,11 @@ function Item({ title, img, price, category, color }) {
 
       <CardDescription price={price} color={color} />
       <ItemCount stock={5} />
+
       <Button color={color}>Ver detalle</Button>
     </div>
   );
 }
 
-export default Item;
+const WrappedComponent = withConsoleLog(Item);
+export default WrappedComponent;
