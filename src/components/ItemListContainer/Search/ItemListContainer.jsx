@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 /* AsyncMockService - servicioMock / backend/nube/api */
-import mobilePhones from "../../data/mobiles";
-import ItemList from "./ItemList";
+import mobilePhones from "../../../data/mobiles";
+import ItemList from "../ItemList";
 
 function getData() {
   return new Promise((resolve) => {
@@ -39,6 +39,7 @@ function withSearch(OrigComponent) {
           onChange={handleChange}
           placeholder="Buscar productos..."
         ></input>
+        <span role="img">🔎</span>
         <OrigComponent filterList={filterList} />
       </>
     );

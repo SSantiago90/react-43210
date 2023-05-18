@@ -5,10 +5,7 @@ import mobilePhones from "../../data/mobiles";
 import ItemList from "./ItemList";
 
 function getData() {
-  /* / */
   return new Promise((resolve) => {
-    /* .... */
-    /* fetch a la DB */
     resolve(mobilePhones);
   });
 }
