@@ -3,22 +3,26 @@ import { useEffect, useState } from "react";
 import mobilePhones from "../../data/mobiles";
 import "./itemdetail.css";
 import ItemCount from "../ItemCount/ItemCount";
+import { useParams } from "react-router-dom";
 
 /* AsnyMock ----------------------------------------------- */
-function getItemData() {
+function getItemData(id) {
   return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(mobilePhones[0]);
-    }, 2000);
+    setTimeout(
+      () => resolve(mobilePhones.find((item) => item.id === Number(id))),
+      2000
+    );
   });
 }
 /* ------------------------------------------------ */
 
 function ItemDetailContainer() {
   const [product, setProduct] = useState({});
+  const { id } = useParams();
+  /* { id: ____ } */
 
   useEffect(() => {
-    getItemData().then((respuesta) => {
+    getItemData(id).then((respuesta) => {
       setProduct(respuesta);
     });
   }, []);
