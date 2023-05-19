@@ -23,3 +23,8 @@
   font-weight: 600;
   color:rgb(19, 19, 17)
 }
+
+.nav-link.active{
+  color: rgb(80, 18, 156);
+  font-weight:600;
+}

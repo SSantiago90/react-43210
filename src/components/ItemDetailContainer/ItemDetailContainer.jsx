@@ -3,25 +3,31 @@ import { useEffect, useState } from "react";
 import mobilePhones from "../../data/mobiles";
 import "./itemdetail.css";
 import ItemCount from "../ItemCount/ItemCount";
+import { useParams } from "react-router-dom";
 
-/* AsnyMock ----------------------------------------------- */
-function getItemData() {
+/* AsynMock Promise ----------------------------------------------- */
+function getItemData(idURL) {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(mobilePhones[0]);
-    }, 2000);
+      const requestedItem = mobilePhones.find(
+        (item) => item.id === Number(idURL)
+      );
+      resolve(requestedItem);
+    }, 1000);
   });
 }
-/* ------------------------------------------------ */
+/* --------------------------------------------------------------- */
 
 function ItemDetailContainer() {
   const [product, setProduct] = useState({});
+  /* const { id } = useParams(); */
+  const id = useParams().id;
 
   useEffect(() => {
-    getItemData().then((respuesta) => {
+    getItemData(id).then((respuesta) => {
       setProduct(respuesta);
     });
-  }, []);
+  }, [id]);
 
   return (
     /* Separar en componente de presentación: <ItemDetail .../> */

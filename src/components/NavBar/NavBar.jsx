@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import "./navbar.css";
 
 export default function NavBar() {
@@ -6,23 +7,23 @@ export default function NavBar() {
       <ul className="nav-menu">
         <h2>
           <li>
-            <a href="/">miTienda</a>
+            <NavLink to="/">miTienda📱</NavLink>
           </li>
         </h2>
         <li className="nav-item">
-          <a className="nav-link" href="/">
-            Remeras
-          </a>
+          <NavLink className="nav-link" to="/category/Apple">
+            Apple
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="/">
-            Zapatillas
-          </a>
+          <NavLink className="nav-link" to="/category/Samsung">
+            Samsung
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="/">
-            Camperas
-          </a>
+          <NavLink className="nav-link" to="/category/Xiaomi">
+            Xiaomi
+          </NavLink>
         </li>
         {/* CartWidget*/}
         <div>🛒</div>

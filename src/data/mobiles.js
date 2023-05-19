@@ -45,6 +45,15 @@ const mobilePhones = [
     detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
+    id: 6,
+    title: "Mi 10",
+    category: "Xiaomi",
+    img: "/src/assets/mi_11.png",
+    price: 499.99,
+    stock: 3,
+    detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  },
+  {
     id: 7,
     title: "iPhone 13",
     category: "Apple",
