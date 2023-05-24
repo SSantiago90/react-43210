@@ -1,20 +1,25 @@
 import { useState } from "react";
 import "./button.scss";
 
-export default function Button(props) {
-  const [colorBtn, setColorBtn] = useState(props.color);
+export default function Button({
+  color,
+  children,
+  onClick,
+  className = "btn",
+}) {
+  const [colorBtn, setColorBtn] = useState(color);
 
   const styleBtn = {
     backgroundColor: colorBtn,
   };
 
   function handleClick() {
-    props.onClick();
+    onClick();
   }
 
   return (
-    <button className={props.className} onClick={handleClick} style={styleBtn}>
-      {props.children}
+    <button className={className} onClick={handleClick} style={styleBtn}>
+      {children}
     </button>
   );
 }

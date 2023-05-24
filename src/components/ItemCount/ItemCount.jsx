@@ -3,15 +3,15 @@ import { useState } from "react";
 import "./itemcount.css";
 import Button from "../Button/Button";
 
-function ItemCount({ stock }) {
+function ItemCount(props) {
   let [count, setCount] = useState(0);
 
   function handleAdd() {
-    if (count < stock) setCount(count + 1);
+    if (count < props.stock) setCount(count + 1);
   }
 
   function handleSubstract() {
-    if (count > 1) count = count - 1;
+    if (count > 1) setCount(count - 1);
   }
 
   return (
@@ -30,7 +30,13 @@ function ItemCount({ stock }) {
       </div>
 
       <div className="itemcount_btns">
-        <Button className="btn btn-info">Agregar al carrito</Button>
+        <Button
+          onClick={() => {
+            props.onAddToCart(count);
+          }}
+        >
+          Agregar al carrito
+        </Button>
       </div>
     </div>
   );

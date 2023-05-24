@@ -24,13 +24,15 @@ function Item({ title, img, price, category, color, id }) {
     classNameFavorite = "item-card_favicon favorite";
   }
 
-  function handleClickFav() {
+  function handleClickFav(event) {
+    event.preventDefault();
+    event.stopPropagation();
     setIsFavorite(!isFavorite);
   }
 
   return (
-    <Link to={`/product/${id}`}>
-      <div className="item-card">
+    <div className="item-card">
+      <Link to={`/product/${id}`}>
         <button onClick={handleClickFav} className={classNameFavorite}>
           ♥
         </button>
@@ -43,11 +45,11 @@ function Item({ title, img, price, category, color, id }) {
         </div>
 
         <CardDescription price={price} color={color} />
-        <ItemCount stock={5} />
-
         <Button color={color}>Ver detalle</Button>
-      </div>
-    </Link>
+      </Link>
+
+      <ItemCount stock={3} />
+    </div>
   );
 }
 

@@ -20,7 +20,6 @@ function getItemData(idURL) {
 
 function ItemDetailContainer() {
   const [product, setProduct] = useState({});
-  /* const { id } = useParams(); */
   const id = useParams().id;
 
   useEffect(() => {
@@ -28,6 +27,10 @@ function ItemDetailContainer() {
       setProduct(respuesta);
     });
   }, [id]);
+
+  function onAddToCart(count) {
+    alert(`Agregaste ${count} - ${product.title} al carrito`);
+  }
 
   return (
     /* Separar en componente de presentación: <ItemDetail .../> */
@@ -39,7 +42,8 @@ function ItemDetailContainer() {
         <h1>{product.title}</h1>
         <h2 className="priceTag">$ {product.price}</h2>
         <small>{product.detail}</small>
-        <ItemCount stock={5} />
+        {/* condicionales / renedering condicional */}
+        <ItemCount onAddToCart={onAddToCart} stock={5} />
       </div>
     </div>
   );
