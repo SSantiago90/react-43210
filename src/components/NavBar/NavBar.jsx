@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
 import "./navbar.css";
+import { useContext } from "react";
+import { cartContext } from "../../context/cartContext";
 
 export default function NavBar() {
   return (
@@ -25,9 +27,19 @@ export default function NavBar() {
             Xiaomi
           </NavLink>
         </li>
-        {/* CartWidget*/}
-        <div>🛒</div>
+        <CartWidget />
       </ul>
     </nav>
+  );
+}
+
+function CartWidget() {
+  const { countItems } = useContext(cartContext);
+
+  return (
+    <div>
+      🛒
+      <span>{countItems()}</span>
+    </div>
   );
 }

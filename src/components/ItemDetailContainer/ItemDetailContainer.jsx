@@ -1,9 +1,11 @@
 /* AsyncMock - servicioMock / backend/nube/api */
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import mobilePhones from "../../data/mobiles";
 import "./itemdetail.css";
 import ItemCount from "../ItemCount/ItemCount";
 import { useParams } from "react-router-dom";
+import { cartContext } from "../../context/cartContext";
+import Button from "../Button/Button";
 
 /* AsynMock Promise ----------------------------------------------- */
 function getItemData(idURL) {
@@ -20,6 +22,17 @@ function getItemData(idURL) {
 
 function ItemDetailContainer() {
   const [product, setProduct] = useState({});
+
+  // 2. Usamos/consumimos el Context
+  const { cart, addItem, removeItem } = useContext(cartContext);
+  console.log("context:", cart);
+
+  function onAddToCart(count) {
+    /* agregar al array del context este producto */
+    addItem(product, count);
+    alert(`Agregaste ${count} - ${product.title} al carrito`);
+  }
+
   const id = useParams().id;
 
   useEffect(() => {
@@ -27,10 +40,6 @@ function ItemDetailContainer() {
       setProduct(respuesta);
     });
   }, [id]);
-
-  function onAddToCart(count) {
-    alert(`Agregaste ${count} - ${product.title} al carrito`);
-  }
 
   return (
     /* Separar en componente de presentación: <ItemDetail .../> */
@@ -44,6 +53,7 @@ function ItemDetailContainer() {
         <small>{product.detail}</small>
         {/* condicionales / renedering condicional */}
         <ItemCount onAddToCart={onAddToCart} stock={5} />
+        <Button onClick={() => removeItem(product.id)}>Eliminar</Button>
       </div>
     </div>
   );

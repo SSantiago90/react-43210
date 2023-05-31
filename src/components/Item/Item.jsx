@@ -47,8 +47,6 @@ function Item({ title, img, price, category, color, id }) {
         <CardDescription price={price} color={color} />
         <Button color={color}>Ver detalle</Button>
       </Link>
-
-      <ItemCount stock={3} />
     </div>
   );
 }
