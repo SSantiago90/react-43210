@@ -3,7 +3,7 @@ import ViewCount from "../components/ViewCount/ViewCount";
 
 function Homepage() {
   return (
-    <div>
+    <div style={{ marginTop: "110px" }}>
       <ViewCount initialValue={1} />
       <ItemListContainer></ItemListContainer>
     </div>

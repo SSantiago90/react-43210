@@ -11,7 +11,7 @@
   display: flex;
   justify-content: space-evenly;
   text-align: center;
-  margin: 40px auto;
+  margin: 40px auto;  
   min-height: 600px;
   width: 90%;
   min-width: 580px;
@@ -22,6 +22,7 @@
   overflow: hidden;  
   transition: all 0.20s ease-in;
   cursor: pointer;
+  margin-top: 110px;
 }
 
 

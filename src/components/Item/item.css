@@ -7,7 +7,7 @@ a{
   font-size: 20 px;
 }
 
-.item-card_price-tag_offer{
+.item-card_price-tag.offer{
   color: green;
 }
 

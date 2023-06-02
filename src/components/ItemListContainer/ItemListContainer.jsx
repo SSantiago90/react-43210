@@ -9,31 +9,35 @@ function getData() {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(mobilePhones);
-    }, 2000);
+    }, 1000);
   });
 }
 
 /* ---------------------------------------------- */
 
 function ItemListContainer() {
-  /* isLoading = false */
+  let [isLoading, setIsLoading] = useState(true);
   let [products, setProducts] = useState([]);
   const { categoryid } = useParams();
 
   useEffect(() => {
-    getData().then((respuesta) => {
-      if (categoryid) {
-        const filterProducts = respuesta.filter(
-          (item) => item.category === categoryid
-        );
-        setProducts(filterProducts);
-      } else {
-        setProducts(respuesta);
-      }
-    });
+    getData()
+      .then((respuesta) => {
+        if (categoryid) {
+          const filterProducts = respuesta.filter(
+            (item) => item.category === categoryid
+          );
+          setProducts(filterProducts);
+        } else {
+          setProducts(respuesta);
+        }
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, [categoryid]);
 
-  return <ItemList products={products} />;
+  return <ItemList isLoading={isLoading} products={products} />;
 }
 
 export default ItemListContainer;

@@ -12,7 +12,7 @@ function CartView() {
   const { cart, removeItem } = useContext(cartContext);
 
   return (
-    <div>
+    <div style={{ marginTop: "150px" }}>
       <h2>Tu carrito de compras</h2>
       {cart.map((item) => (
         <ul key={item.id}>

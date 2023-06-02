@@ -1,4 +1,4 @@
-/* AsyncMock - servicioMock / backend/nube/api */
+/* AsyncMock - servicioMock backend/nube/api */
 import { useContext, useEffect, useState } from "react";
 import mobilePhones from "../../data/mobiles";
 import "./itemdetail.css";
@@ -10,23 +10,26 @@ import Loader from "../Loader/Loader";
 
 /* AsynMock Promise ----------------------------------------------- */
 function getItemData(idURL) {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
       const requestedItem = mobilePhones.find(
         (item) => item.id === Number(idURL)
       );
-      resolve(requestedItem);
+
+      if (requestedItem) resolve(requestedItem);
+      else reject(new Error("Error: producto no encontrado"));
     }, 1000);
   });
 }
 /* --------------------------------------------------------------- */
 
 function ItemDetailContainer() {
+  const [errors, setErrors] = useState(null);
   const [product, setProduct] = useState(null); // {} truthy => evalua a true
   const [countInCart, setCountInCart] = useState(0);
 
   // 2. Usamos/consumimos el Context
-  const { cart, addItem, removeItem } = useContext(cartContext);
+  const { addItem, removeItem } = useContext(cartContext);
 
   function onAddToCart(count) {
     addItem(product, count);
@@ -38,10 +41,22 @@ function ItemDetailContainer() {
   const id = useParams().id;
 
   useEffect(() => {
-    getItemData(id).then((respuesta) => {
-      setProduct(respuesta);
-    });
+    getItemData(id)
+      .then((respuesta) => {
+        setProduct(respuesta);
+      })
+      .catch((error) => {
+        setErrors(error.message);
+      });
   }, [id]);
+
+  if (errors)
+    return (
+      <div style={{ marginTop: "300px" }}>
+        <h1>Error</h1>
+        <p>{errors}</p>
+      </div>
+    );
 
   if (product) {
     return (
@@ -66,7 +81,11 @@ function ItemDetailContainer() {
       </div>
     );
   }
-  return <Loader />;
+  return (
+    <div className="card-detail_main">
+      <Loader />
+    </div>
+  );
 }
 
 export default ItemDetailContainer;

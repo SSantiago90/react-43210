@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function CardDescription({ price, category, discount }) {
   const classNamePrice =
-    discount > 25 ? "item-card_price-tag_offer" : "item-card_price-tag";
+    discount > 25 ? "item-card_price-tag offer" : "item-card_price-tag";
 
   return (
     <div className="item-card_detail">
@@ -42,6 +42,8 @@ function Item({ title, img, price, category, color, id, discount, stock }) {
 
   const stylesButton = {
     backgroundColor: stock === 0 ? "grey" : "inherit",
+    color: stock === 0 ? "#b6b6b6" : "inherit",
+    cursor: stock === 0 ? "not-allowed" : "pointer",
   };
 
   return (
