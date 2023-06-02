@@ -7,13 +7,16 @@ import mobilePhones from "../../data/mobiles";
 
 function getData() {
   return new Promise((resolve) => {
-    setTimeout(() => resolve(mobilePhones)), 1000;
+    setTimeout(() => {
+      resolve(mobilePhones);
+    }, 2000);
   });
 }
 
 /* ---------------------------------------------- */
 
 function ItemListContainer() {
+  /* isLoading = false */
   let [products, setProducts] = useState([]);
   const { categoryid } = useParams();
 

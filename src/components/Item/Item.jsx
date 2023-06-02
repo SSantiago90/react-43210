@@ -1,20 +1,30 @@
 import { useState } from "react";
 import Button from "../Button/Button";
 import "./item.css";
-import ItemCount from "../ItemCount/ItemCount";
 import withConsoleLog from "../HOCs/withRenderCount";
 import { Link } from "react-router-dom";
 
-function CardDescription({ price, category }) {
+function CardDescription({ price, category, discount }) {
+  const classNamePrice =
+    discount > 25 ? "item-card_price-tag_offer" : "item-card_price-tag";
+
   return (
     <div className="item-card_detail">
-      <h4 className="item-card_price-tag">$ {price}</h4>
+      {discount && <small>Descuento: {discount} % </small>}
+
+      {discount > 25 && <small style={{ color: "green" }}>Ofertón!</small>}
+      {discount > 25 && price < 2000 && (
+        <small style={{ color: "red" }}>Super Ofertón!</small>
+      )}
+
+      <h4 className={classNamePrice}>$ {price}</h4>
+
       <small>{category}</small>
     </div>
   );
 }
 
-function Item({ title, img, price, category, color, id }) {
+function Item({ title, img, price, category, color, id, discount, stock }) {
   const [isFavorite, setIsFavorite] = useState(false);
   let classNameFavorite;
 
@@ -30,6 +40,10 @@ function Item({ title, img, price, category, color, id }) {
     setIsFavorite(!isFavorite);
   }
 
+  const stylesButton = {
+    backgroundColor: stock === 0 ? "grey" : "inherit",
+  };
+
   return (
     <div className="item-card">
       <Link to={`/product/${id}`}>
@@ -44,8 +58,11 @@ function Item({ title, img, price, category, color, id }) {
           <img src={img} alt="imagen"></img>
         </div>
 
-        <CardDescription price={price} color={color} />
-        <Button color={color}>Ver detalle</Button>
+        <CardDescription discount={discount} price={price} color={color} />
+
+        <Button style={stylesButton} color={color}>
+          Ver detalle
+        </Button>
       </Link>
     </div>
   );

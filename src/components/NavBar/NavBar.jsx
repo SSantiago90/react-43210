@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./navbar.css";
 import { useContext } from "react";
 import { cartContext } from "../../context/cartContext";
@@ -37,9 +37,10 @@ function CartWidget() {
   const { countItems } = useContext(cartContext);
 
   return (
-    <div>
+    <Link to="/cart">
       🛒
+      {/* si el valor del cart es 0 no mostramos esto */}
       <span>{countItems()}</span>
-    </div>
+    </Link>
   );
 }

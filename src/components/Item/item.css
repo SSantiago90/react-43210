@@ -7,6 +7,10 @@ a{
   font-size: 20 px;
 }
 
+.item-card_price-tag_offer{
+  color: green;
+}
+
 .item-card{
   color: black;
   text-align: center;
