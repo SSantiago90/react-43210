@@ -1,7 +1,7 @@
 /* AsyncMock - servicioMock backend/nube/api */
 import { useContext, useEffect, useState } from "react";
 import mobilePhones from "../../data/mobiles";
-import "./itemdetail.css";
+import "./ItemDetail.css";
 import ItemCount from "../ItemCount/ItemCount";
 import { Link, useParams } from "react-router-dom";
 import { cartContext } from "../../context/cartContext";
