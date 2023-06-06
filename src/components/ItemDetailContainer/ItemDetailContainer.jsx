@@ -52,7 +52,7 @@ function ItemDetailContainer() {
 
   if (errors)
     return (
-      <div style={{ marginTop: "300px" }}>
+      <div>
         <h1>Error</h1>
         <p>{errors}</p>
       </div>

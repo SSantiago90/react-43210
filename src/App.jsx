@@ -10,13 +10,15 @@ function App() {
     <CartContextProvider>
       <BrowserRouter>
         <NavBar />
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/product/:id" element={<ItemDetailContainer />} />
-          <Route path="/category/:categoryid" element={<Homepage />} />
-          <Route path="/cart" element={<CartView />} />
-          <Route path="*" element={<h4>Error 404: Page not found</h4>} />
-        </Routes>
+        <main>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/product/:id" element={<ItemDetailContainer />} />
+            <Route path="/category/:categoryid" element={<Homepage />} />
+            <Route path="/cart" element={<CartView />} />
+            <Route path="*" element={<h4>Error 404: Page not found</h4>} />
+          </Routes>
+        </main>
       </BrowserRouter>
     </CartContextProvider>
   );

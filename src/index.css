@@ -7,6 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+main{
+  margin-top: 120px;
+  text-align: center;
+}
 a{  
   text-decoration: none !important;
 }
