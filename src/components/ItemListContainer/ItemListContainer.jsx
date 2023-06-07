@@ -1,37 +1,18 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
-/* AsyncMockService - servicioMock / backend/nube/api */
+import { getCategoryData, getData } from "../../services/firebase";
 import ItemList from "./ItemList";
-import mobilePhones from "../../data/mobiles";
-
-function getData() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(mobilePhones);
-    }, 1000);
-  });
-}
-
-/* ---------------------------------------------- */
 
 function ItemListContainer() {
   let [isLoading, setIsLoading] = useState(true);
   let [products, setProducts] = useState([]);
   const { categoryid } = useParams();
 
+  const fetchData = categoryid === undefined ? getData : getCategoryData;
+
   useEffect(() => {
-    getData()
-      .then((respuesta) => {
-        if (categoryid) {
-          const filterProducts = respuesta.filter(
-            (item) => item.category === categoryid
-          );
-          setProducts(filterProducts);
-        } else {
-          setProducts(respuesta);
-        }
-      })
+    fetchData(categoryid)
+      .then((respuesta) => setProducts(respuesta))
       .finally(() => {
         setIsLoading(false);
       });
