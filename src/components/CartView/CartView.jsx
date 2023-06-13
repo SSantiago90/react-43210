@@ -10,14 +10,10 @@ function CartContainer() {
   const { cart, removeItem, countTotalPrice, clear } = useContext(cartContext);
   const navigateTo = useNavigate();
 
-  async function handleConfirm() {
+  async function handleConfirm(userData) {
     const order = {
       items: cart,
-      buyer: {
-        name: "Rodrigo Matias",
-        phone: 123123,
-        email: "rodrigo@mail.com",
-      },
+      buyer: userData,
       date: new Date(),
       price: countTotalPrice(),
     };
@@ -75,8 +71,7 @@ function CartContainer() {
 
       <div className="cartList_detail">
         <h4>El total de tu compra es de $ --,--</h4>
-        {/* <CheckoutForm /> */}
-        <button onClick={handleConfirm}>Crear orden de compra</button>
+        <CheckoutForm onConfirm={handleConfirm} />
       </div>
     </>
   );
