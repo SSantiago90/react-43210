@@ -1,0 +1,20 @@
+.checkoutform-container{
+  background-color: #e6e6e6;
+  width: 520px;  
+  border-radius: 1rem;
+  text-align: center;
+  margin: 30px auto 10px;
+  padding: 20px;
+}
+
+.checkoutform-container input{
+  background-color: white;
+  border-radius: 1rem;
+  width: 85%;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  display: block;
+  padding : 8px 14px;
+  margin: 15px auto 20px; 
+}

@@ -1,27 +1,12 @@
 /* AsyncMock - servicioMock backend/nube/api */
 import { useContext, useEffect, useState } from "react";
-import mobilePhones from "../../data/mobiles";
-import "./ItemDetail.css";
+import "./itemdetail.css";
 import ItemCount from "../ItemCount/ItemCount";
 import { Link, useParams } from "react-router-dom";
 import { cartContext } from "../../context/cartContext";
 import Button from "../Button/Button";
 import Loader from "../Loader/Loader";
-
-/* AsynMock Promise ----------------------------------------------- */
-function getItemData(idURL) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const requestedItem = mobilePhones.find(
-        (item) => item.id === Number(idURL)
-      );
-
-      if (requestedItem) resolve(requestedItem);
-      else reject(new Error("Error: producto no encontrado"));
-    }, 1000);
-  });
-}
-/* --------------------------------------------------------------- */
+import { getItemData } from "../../services/firebase";
 
 function ItemDetailContainer() {
   const [errors, setErrors] = useState(null);
@@ -52,7 +37,7 @@ function ItemDetailContainer() {
 
   if (errors)
     return (
-      <div style={{ marginTop: "300px" }}>
+      <div>
         <h1>Error</h1>
         <p>{errors}</p>
       </div>

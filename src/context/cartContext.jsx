@@ -66,11 +66,11 @@ export function CartContextProvider({ children }) {
   }
 
   function countTotalPrice() {
-    /* .... */
+    return 999;
   }
 
   function clear() {
-    /*  */
+    setCart([]);
   }
 
   function removeItem(idDelete) {
@@ -88,6 +88,8 @@ export function CartContextProvider({ children }) {
         removeItem,
         getItem,
         isInCart,
+        countTotalPrice,
+        clear,
       }}
     >
       {children}

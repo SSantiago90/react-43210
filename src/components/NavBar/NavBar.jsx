@@ -4,7 +4,7 @@ import { useContext, useEffect } from "react";
 import { cartContext } from "../../context/cartContext";
 
 export default function NavBar() {
-  // re-scroll to top
+  // re-scroll to top cada vez que cambia la URL ("location")
   let location = useLocation();
 
   useEffect(() => {
@@ -16,26 +16,16 @@ export default function NavBar() {
       <ul className="nav-menu">
         <h2>
           <li>
-            <NavLink preventScrollReset={false} to="/">
-              miTienda📱
-            </NavLink>
+            <NavLink to="/">miTienda📱</NavLink>
           </li>
         </h2>
         <li className="nav-item">
-          <NavLink
-            preventScrollReset={false}
-            className="nav-link"
-            to="/category/Apple"
-          >
+          <NavLink className="nav-link" to="/category/Apple">
             Apple
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink
-            preventScrollReset={false}
-            className="nav-link"
-            to="/category/Samsung"
-          >
+          <NavLink className="nav-link" to="/category/Samsung">
             Samsung
           </NavLink>
         </li>

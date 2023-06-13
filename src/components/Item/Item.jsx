@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Button from "../Button/Button";
 import "./item.css";
-import withConsoleLog from "../HOCs/withRenderCount";
 import { Link } from "react-router-dom";
 
 function CardDescription({ price, category, discount }) {
@@ -69,6 +68,4 @@ function Item({ title, img, price, category, color, id, discount, stock }) {
     </div>
   );
 }
-
-const WrappedComponent = withConsoleLog(Item);
-export default WrappedComponent;
+export default Item;

@@ -93,6 +93,33 @@ const mobilePhones = [
     stock: 12,
     detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
+  {
+    id: 10,
+    title: "Pixel 6",
+    category: "Google",
+    img: "/assets/pixel.avif",
+    price: 699.99,
+    stock: 1,
+    detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  },
+  {
+    id: 11,
+    title: "Mi 11",
+    category: "Xiaomi",
+    img: "/assets/mi_11.png",
+    price: 599.99,
+    stock: 3,
+    detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  },
+  {
+    id: 12,
+    title: "Mi 10",
+    category: "Xiaomi",
+    img: "/assets/mi_11.png",
+    price: 499.99,
+    stock: 3,
+    detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  },
 ];
 
 export default mobilePhones;

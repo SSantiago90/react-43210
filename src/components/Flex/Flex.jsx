@@ -1,4 +1,4 @@
-function Flex({ children }) {
+function Flex(props) {
   const flexStyle = {
     display: "flex",
     justifyContent: "space-around",
@@ -7,7 +7,7 @@ function Flex({ children }) {
 
   return (
     <div>
-      <div style={flexStyle}>{children}</div>
+      <div style={flexStyle}>{props.children}</div>
     </div>
   );
 }
